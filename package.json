@@ -1,0 +1,47 @@
+{
+  "name": "accenture_desafio_tecnico_2",
+  "version": "1.0.0",
+  "description": "Desafio tecnico para o processo seletivo da Accenture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DinoSaulo/Accenture_desafio_tecnico_2.git"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Din0saulo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DinoSaulo/Accenture_desafio_tecnico_2/issues"
+  },
+  "homepage": "https://github.com/DinoSaulo/Accenture_desafio_tecnico_2#readme",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.1",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@cypress/webpack-preprocessor": "^5.11.1",
+    "@types/cypress": "^1.1.3",
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
+    "@types/node": "^16.11.26",
+    "@types/styled-components": "^5.1.24",
+    "cucumber": "^6.0.7",
+    "cypress": "^10.11.0",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-iframe": "^1.0.1",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.4.1",
+    "mochawesome-report-generator": "^6.2.0",
+    "multiple-cucumber-html-reporter": "^3.1.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "cypress-xpath": "^2.0.1",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
