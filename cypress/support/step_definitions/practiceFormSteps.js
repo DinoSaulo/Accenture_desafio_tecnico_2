@@ -8,16 +8,16 @@ const userGenerator = new UserGenerator()
 let randomUser;
 const txtFile = 'cypress/fixtures/validTextFile.txt';
 
-When("preenche todos os campos do formulário com valores aleatórios", () => {
+When("o usuário preenche todos os campos do formulário com valores aleatórios", () => {
     randomUser = userGenerator.generateRandomUser();
     practiceFormPage.fillInputsWithRandomData(randomUser);
 })
 
-When("faz upload de um arquivo .txt válido", () => {
+When("o usuário faz upload de um arquivo .txt válido", () => {
     practiceFormPage.attachTxtFile(txtFile);
 })
 
-When("submete o formulário", () => {
+When("o usuário submete o formulário", () => {
     practiceFormPage.submitForm();
 })
 
