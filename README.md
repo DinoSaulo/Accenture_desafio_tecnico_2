@@ -48,12 +48,35 @@ npm install
 #### Via CLI
 
 ```bash
-npx cypress run
+npx cypress run --reporter mochawesome
 ```
 Após a execução do comando os testes serão executados e ao final será exibido o resumo da execução no seguinte formato
 ```bash
 ...
-(Results)
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 minute, 10 seconds                                                             │
+  │ Spec Ran:     toolsqa.feature                                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+...
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  toolsqa.feature                          01:10        2        2        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    √  All specs passed!                        01:10        2        2        -        -        -
 
 ```
 
