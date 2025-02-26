@@ -9,3 +9,12 @@ Feature: Formulário de Cadastro no DemoQA
     And submete o formulário
     Then um popup de confirmação deve ser exibido
     And o usuário fecha o popup
+
+  Scenario: Abrir uma nova janela e validar a mensagem exibida
+    Given que o usuário está na pagina inicial do Demo QA
+    When o usuário seleciona a opção "Alerts, Frame & Windows" na página inicial
+    And clica no submenu "Browser Windows"
+    And o usuário clica no botão "New Window"
+    Then uma nova janela deve ser aberta
+    And a mensagem "This is a sample page" deve estar visível
+    And o usuário fecha a nova janela
