@@ -35,3 +35,5 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.overwrite('loginxxxx', () => { console.log("fuawsigjjsjkjj") })

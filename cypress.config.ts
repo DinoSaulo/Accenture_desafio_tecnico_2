@@ -14,6 +14,9 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
 
+    viewportWidth: 1920,
+    viewportHeight: 1080,
+
     e2e: {
         specPattern: "**/**/*.feature",
         supportFile: 'cypress/support/index.js',
@@ -22,6 +25,8 @@ module.exports = defineConfig({
         env: {
           
         },
+        chromeWebSecurity: false,
+        modifyObstructiveCode:false,
         "video":true,
         "videoCompression": 0,
         "animationDistanceThreshold": 50,
