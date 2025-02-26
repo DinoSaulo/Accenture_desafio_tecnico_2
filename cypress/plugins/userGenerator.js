@@ -40,6 +40,17 @@ class UserFactory {
 
         return randomUser
     }
+    
+    generateRandomRegister() {
+        return {
+            firstName: faker.person.firstName(),
+            lastName: faker.person.lastName(),
+            email: faker.internet.email(),
+            age: faker.number.int({ min: 18, max: 65 }),
+            salary: faker.number.int({ min: 30000, max: 150000 }),
+            department: faker.commerce.department()
+        };
+    }
 }
 
 export default UserFactory

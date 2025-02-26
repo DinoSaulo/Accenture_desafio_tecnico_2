@@ -1,5 +1,5 @@
 class SideMenuElements {
-    btnSubMenuByName = (buttonName) => { return `//li[@id='item-0']//span[text()='${buttonName}']` }
+    btnSubMenuByName = (buttonName) => { return `//div[@class='left-pannel']//li//span[text()='${buttonName}']` }
 }
   
 export default SideMenuElements;
