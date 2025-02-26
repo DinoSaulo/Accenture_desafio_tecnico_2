@@ -5,14 +5,10 @@ const path = require('path');
 
 class PracticeFormPage {
     fillInputsWithRandomData(randomUser){
-        //const randomUser = this.generateRandomUser()
-        
-        cy.get(practiceFormElements.inputState()).type(randomUser.state);
+        cy.get(practiceFormElements.inputState()).type(randomUser.state+'{enter}{enter}');
         cy.wait(500);
-        cy.get(practiceFormElements.inputState()).type('{downArrow}{enter}');  
-        cy.get(practiceFormElements.inputCity()).type(randomUser.city);
+        cy.get(practiceFormElements.inputCity()).type(randomUser.city+'{enter}{enter}');
         cy.wait(500);
-        cy.get(practiceFormElements.inputCity()).type('{downArrow}{enter}');
         cy.get(practiceFormElements.inputfirstName()).type(randomUser.firstName);
         cy.get(practiceFormElements.inputLastName()).type(randomUser.lastName);
         cy.get(practiceFormElements.inputEmail()).type(randomUser.email);
@@ -34,7 +30,6 @@ class PracticeFormPage {
         cy.get(practiceFormElements.btnSubmit()).click();
     }
 
-
     validateModalData(randomUser, txtFile){
         console.log(randomUser)
         const expectedData = {
@@ -47,9 +42,8 @@ class PracticeFormPage {
             'Hobbies': randomUser.hobby,
             'Picture': path.basename(txtFile),
             'Address': randomUser.address,
-            'State and City': 'NCR Delhi'
+            'State and City': `${randomUser.state} ${randomUser.city}`
           };
-
 
         cy.get('.table tbody tr').each(($row) => {
             const label = $row.find('td').first().text().trim();
