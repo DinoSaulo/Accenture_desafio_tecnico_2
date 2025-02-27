@@ -36,3 +36,15 @@ Feature: Formulário de Cadastro no DemoQA
     And o usuário cria "12" novos registros de forma dinâmica
     And o usuário deleta todos os registros criados
     Then a tabela não deve conter registros criados pelo usuário
+
+  Scenario: Controlar a barra de progresso e validar valores
+    Given que o usuário está na pagina inicial do Demo QA
+    When o usuário seleciona a opção "Widgets" na página inicial
+    And o usuário clica no submenu "Progress Bar"
+    And o usuário clica no botão Start
+    And o usuário para antes dos "25%"
+    Then o valor da Progress Bar deve ser menor ou igual a "25%"
+    When o usuário clica no botão Start novamente
+    And a Progress Bar chega a 100%
+    And o usuário reseta a barra de progresso
+    Then a barra de progresso é exibida com "0%"
