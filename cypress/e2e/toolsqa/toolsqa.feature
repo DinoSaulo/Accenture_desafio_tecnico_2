@@ -48,3 +48,10 @@ Feature: Formulário de Cadastro no DemoQA
     And a Progress Bar chega a 100%
     And o usuário reseta a barra de progresso
     Then a barra de progresso é exibida com "0%"
+
+  Scenario: Reordenar elementos usando Drag and Drop
+    Given que o usuário está na pagina inicial do Demo QA
+    When o usuário seleciona a opção "Interactions" na página inicial
+    And o usuário clica no submenu "Sortable"
+    And o usuário arrasta os elementos para colocá-los na ordem decrescente
+    Then os elementos devem estar corretamente ordenados
