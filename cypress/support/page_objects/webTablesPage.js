@@ -36,17 +36,55 @@ class WebTablesPage {
     }
 
     deleteRegiserInTheTable(randomRegister){
-        getUserRowIndex(randomRegister).then((index) => {
-            cy.log(`Registro encontrado na linha: ${index}`);
-            expect(index).to.not.equal(-1);
-            cy.get(webTablesElements.btnDeleteUserByIndex(index)).click()
+        getUserRowIndex(randomRegister).then((registerIndex) => {
+            cy.log(`Registro encontrado na linha: ${registerIndex}`);
+            expect(registerIndex).to.not.equal(-1);
+            cy.xpath(webTablesElements.registerByRowIndex(registerIndex)).click();
         });
     }
 
     validateThatRegisterIsNotPresent(randomRegister){
         getUserRowIndex(randomRegister).then((index) => {
-            (index).should('equal', -1);
+            expect(index).to.equal(-1);
         });
+    }
+
+    createNewRegister(randomUser){
+        this.clickOnAddButton();
+        cy.wait(500)
+        this.fillNewUserRegisterForm(randomUser);
+        cy.wait(500)
+        this.clickOnSubmitButton();
+        cy.wait(500)
+    }
+
+    createMultipleRegisters(randomRegistersArray) {
+        for (const register of randomRegistersArray) {
+            this.createNewRegister(register);
+        }
+
+        let qtdRegisters = randomRegistersArray.length
+        if(qtdRegisters>10){
+            this.selectClosestRowsPerPage(qtdRegisters)
+        }
+    }
+
+    selectClosestRowsPerPage(qtdRegisters) {
+        const options = [5, 10, 20, 25, 50, 100];
+        const selectedValue = options.find(value => value >= qtdRegisters) || 100;
+        cy.get('select[aria-label="rows per page"]').select(selectedValue.toString());
+    }
+
+    deleteMultipleRegisters(randomRegistersArray) {
+        for (const register of randomRegistersArray) {
+            this.deleteRegiserInTheTable(register);
+        }
+    }
+
+    validateThatRegistersAreNotPresent(randomRegistersArray) {
+        for (const register of randomRegistersArray) {
+            this.validateThatRegisterIsNotPresent(register);
+        }
     }
 }
 

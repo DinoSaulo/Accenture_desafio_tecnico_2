@@ -6,6 +6,7 @@ const userGenerator = new UserGenerator();
 const webTablesPage = new WebTablesPage();
 
 let randomUser;
+let randomRegistersArray;
 
 When("o usuário cria um novo registro", () => {
     randomUser = userGenerator.generateRandomRegister();
@@ -31,7 +32,6 @@ When("o usuário altera o valor do salário", () => {
     randomUser.salary = newSalary;
 })
 
-
 When("o usuário deleta o registro criado", () => {
     webTablesPage.deleteRegiserInTheTable(randomUser);
 })
@@ -41,13 +41,16 @@ Then("o registro não deve estar mais visível na tabela", () => {
 })
 
 When("o usuário cria {string} novos registros de forma dinâmica", (qtUsers) => {
+    const qtRandomRegisters = parseInt(qtUsers, 10);
+    randomRegistersArray = userGenerator.generateMultipleRandomRegisters(qtRandomRegisters);
     
+    webTablesPage.createMultipleRegisters(randomRegistersArray);
 })
 
 When("o usuário deleta todos os registros criados", () => {
-    
+    webTablesPage.deleteMultipleRegisters(randomRegistersArray);
 })
 
 Then("a tabela não deve conter registros criados pelo usuário", () => {
-    
+    webTablesPage.validateThatRegistersAreNotPresent(randomRegistersArray);
 })

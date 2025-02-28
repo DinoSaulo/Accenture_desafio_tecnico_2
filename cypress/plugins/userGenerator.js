@@ -51,6 +51,10 @@ class UserFactory {
             department: faker.commerce.department()
         };
     }
+
+    generateMultipleRandomRegisters(qtRandomRegisters) {
+        return Array.from({ length: qtRandomRegisters }, () => this.generateRandomRegister());
+    }
 }
 
 export default UserFactory
